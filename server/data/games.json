@@ -1,0 +1,26 @@
+{
+    "a3212063-a81e-4ad1-ad16-916a3d253e48": {
+        "title": "World of Warcraft",
+        "category": "MMORPG",
+        "maxLevel": "100",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/World_of_Warcraft.png",
+        "summary": "Similar to other MMORPGs, the game allows players to create a character avatar and explore an open game world in third- or first-person view, exploring the landscape, fighting various monsters, completing quests, and interacting with non-player characters (NPCs) or other players.",
+        "_id": "a3212063-a81e-4ad1-ad16-916a3d253e48"
+    },
+    "26443dcf-f465-4d8c-870d-5444045fa289": {
+        "title": "Rocket League",
+        "category": "vehicular soccer video game ",
+        "maxLevel": "1000",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJANR1OZtB3WTef1I80MZGu8t93BEfj5BfXg&s",
+        "summary": "Rocket League is a video game the combines arcade-style soccer and driving games. You play by controlling rocket-powered vehicles, which you can use to score goals with a giant soccer ball. Gameplay is energetic and chaotic as the cars can flip and fly in all directions.",
+        "_id": "26443dcf-f465-4d8c-870d-5444045fa289"
+    },
+    "eb7aab9b-187b-462f-b88d-a9ddd7db621f": {
+        "title": "CS:GO",
+        "category": "FPS",
+        "maxLevel": "1",
+        "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/capsule_616x353.jpg?t=1719426374",
+        "summary": "The game pits two teams, Terrorists and Counter-Terrorists, against each other in different objective-based game modes. The most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured.",
+        "_id": "eb7aab9b-187b-462f-b88d-a9ddd7db621f"
+    }
+}
