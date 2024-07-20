@@ -1,4 +1,4 @@
-export default function Catalog() {
+export default function GameList() {
     return (
         <section id="catalog-page">
             <h1>All Games</h1>

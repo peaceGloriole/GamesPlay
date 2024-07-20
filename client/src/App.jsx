@@ -1,7 +1,7 @@
-import Catalog from "./components/catalog/Catalog";
-import Create from "./components/create/Create";
-import Details from "./components/details/Details";
-import Edit from "./components/edit/Edit";
+import GameList from "./components/GameList/GameList";
+import CreateGame from "./components/CreateGame/CreateGame";
+import DetailsGame from "./components/DetailsGame/DetailsGame";
+import EditGame from "./components/EditGame/EditGame";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import Login from "./components/login/Login";
@@ -17,10 +17,10 @@ function App() {
                 <Home />
                 <Login />
                 <Register />
-                <Create />
-                <Edit />
-                <Details />
-                <Catalog />
+                <CreateGame />
+                <EditGame />
+                <DetailsGame />
+                <GameList />
             </main>
         </div>
     );
