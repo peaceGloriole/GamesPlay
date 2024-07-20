@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import gameAPI from "../../api/game-api";
@@ -14,16 +16,26 @@ export default function DetailsGame() {
     useEffect(() => {
         (async () => {
             const result = await gameAPI.getOne(gameId);
+
             setGame(result);
         })();
-    });
+    }, []);
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
-        
-        const result = await commentsApi.create(gameId, username, comment);
 
-        return result;
+        const newComment = await commentsApi.create(gameId, username, comment);
+
+        setGame(prevState => ({
+            ...prevState,
+            comments: {
+                ...prevState.comments,
+                [newComment._id]: newComment,
+            }
+        }));
+
+        setUsername(``);
+        setComment(``);
     };
 
     return (
@@ -46,12 +58,15 @@ export default function DetailsGame() {
                 <div className="details-comments">
                     <h2>Comments:</h2>
                     <ul>
-                        <li className="comment">
-                            <p>Content: {comment}</p>
-                        </li>
+                        {Object.keys(game.comments || {}).length > 0
+                            ? Object.values(game.comments).map(comment => (
+                                <li key={comment._id} className="comment">
+                                    <p>{comment.username}: {comment.text}.</p>
+                                </li>
+                            ))
+                            : <p className="no-comment">No comments.</p>
+                        }
                     </ul>
-
-                    <p className="no-comment">No comments.</p>
                 </div>
 
                 <div className="buttons">
@@ -66,16 +81,16 @@ export default function DetailsGame() {
                     <input
                         type="text"
                         name="username"
-                        placeholder="Name" 
+                        placeholder="Name"
                         onChange={(e) => setUsername(e.target.value)}
                         value={username}
-                        />
+                    />
                     <textarea
                         name="comment"
                         placeholder="Comment......"
                         onChange={(e) => setComment(e.target.value)}
                         value={comment}
-                        ></textarea>
+                    ></textarea>
                     <input className="btn submit" type="submit" value="Add Comment" />
                 </form>
             </article>
