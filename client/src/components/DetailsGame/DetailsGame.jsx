@@ -1,25 +1,34 @@
 /* eslint-disable react/prop-types */
-export default function DetailsGame({
-    imageUrl,
-    summary,
-    title,
-    category,
-    maxLevel,
-}) {
+import { useEffect, useState } from "react";
+import gameAPI from "../../api/game-api";
+import { useParams } from "react-router-dom";
+
+export default function DetailsGame() {
+
+    const [game, setGame] = useState({});
+    const { gameId } = useParams();
+
+    useEffect(() => {
+        (async () => {
+            const result = await gameAPI.getOne(gameId);
+            setGame(result);
+        })();
+    });
+
     return (
         <section id="game-details">
             <h1>Game Details</h1>
             <div className="info-section">
 
                 <div className="game-header">
-                    <img className="game-img" src={imageUrl} />
-                    <h1>{title}</h1>
-                    <span className="levels">MaxLevel: {maxLevel}</span>
-                    <p className="type">{category}</p>
+                    <img className="game-img" src={game.imageUrl} />
+                    <h1>{game.title}</h1>
+                    <span className="levels">MaxLevel: {game.maxLevel}</span>
+                    <p className="type">{game.category}</p>
                 </div>
 
                 <p className="text">
-                    {summary}
+                    {game.summary}
                 </p>
 
 
