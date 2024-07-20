@@ -1,11 +1,6 @@
-import GameList from "./components/GameList/GameList";
-import CreateGame from "./components/CreateGame/CreateGame";
-import DetailsGame from "./components/DetailsGame/DetailsGame";
-import EditGame from "./components/EditGame/EditGame";
-import Header from "./components/header/Header";
+import { Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
-import Login from "./components/login/Login";
-import Register from "./components/register/Register";
+import Header from "./components/header/Header";
 
 function App() {
 
@@ -14,13 +9,9 @@ function App() {
             <Header />
 
             <main id="main-content">
-                <Home />
-                <Login />
-                <Register />
-                <CreateGame />
-                <EditGame />
-                <DetailsGame />
-                <GameList />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                </Routes>
             </main>
         </div>
     );
