@@ -1,5 +1,7 @@
 import * as gamesAPI from '../../api/game-api.js';
+
 import { useEffect, useState } from 'react';
+
 import GameListItem from './gameListItem/GameListItem.jsx';
 
 export default function GameList() {
@@ -7,8 +9,11 @@ export default function GameList() {
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        gamesAPI.getAll()
-            .then(result => setGames(result));
+        (async () => {
+            const result = await gamesAPI.getAll();
+
+            setGames(result);
+        })();
     }, []);
 
     return (
