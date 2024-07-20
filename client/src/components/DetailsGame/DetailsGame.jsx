@@ -7,10 +7,10 @@ import { useParams } from "react-router-dom";
 import commentsApi from "../../api/comments-api";
 
 export default function DetailsGame() {
-
+    
+    const [game, setGame] = useState({});
     const [username, setUsername] = useState(``);
     const [comment, setComment] = useState(``);
-    const [game, setGame] = useState({});
     const { gameId } = useParams();
 
     useEffect(() => {
@@ -50,9 +50,7 @@ export default function DetailsGame() {
                     <p className="type">{game.category}</p>
                 </div>
 
-                <p className="text">
-                    {game.summary}
-                </p>
+                <p className="text">{game.summary}</p>
 
 
                 <div className="details-comments">
