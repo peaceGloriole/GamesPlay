@@ -1,6 +1,7 @@
 import requester from "./requester";
 
 const BASE_URL = `http://localhost:3030/jsonstore/games`;
+
 const buildUrl = (gameId) => `${BASE_URL}/${gameId}/comments`;
 
 const create = async (gameId, username, text) => {
