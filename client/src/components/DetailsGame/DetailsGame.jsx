@@ -1,25 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
-import gameAPI from "../../api/game-api";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+
 import commentsApi from "../../api/comments-api";
+import { useGetOneGame } from "../../hooks/useGames";
 
 export default function DetailsGame() {
-    
-    const [game, setGame] = useState({});
     const [username, setUsername] = useState(``);
     const [comment, setComment] = useState(``);
     const { gameId } = useParams();
-
-    useEffect(() => {
-        (async () => {
-            const result = await gameAPI.getOne(gameId);
-
-            setGame(result);
-        })();
-    }, []);
+    const [game, setGame] = useGetOneGame(gameId);
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();

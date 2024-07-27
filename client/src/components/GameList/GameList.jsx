@@ -3,6 +3,7 @@ import { useGetAllGames } from '../../hooks/useGames.js';
 
 export default function GameList() {
     const [games] = useGetAllGames([]);
+    
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
