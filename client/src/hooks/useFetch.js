@@ -10,7 +10,7 @@ export function useFetch(url, initialData) {
 
             setData(data);
         })();
-    });
+    }, []);
 
     return { data };
 }

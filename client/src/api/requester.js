@@ -1,6 +1,14 @@
-/* eslint-disable quotes */
 export async function requester(method, url, data) {
     const options = {};
+
+    const accessToken = localStorage.getItem(`accessToken`);
+
+    if (accessToken) {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': accessToken,
+        };
+    }
 
     if (method !== `GET`) {
         options.method = method;
@@ -8,6 +16,7 @@ export async function requester(method, url, data) {
 
     if (data) {
         options.headers = {
+            ...options.headers,
             'Content-Type': 'application/json',
         };
 
@@ -16,6 +25,7 @@ export async function requester(method, url, data) {
 
     const response = await fetch(url, options);
     const result = await response.json();
+    console.log(result);
 
     if (!response.ok) {
         throw result;

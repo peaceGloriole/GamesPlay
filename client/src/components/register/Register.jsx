@@ -1,7 +1,10 @@
-import { useRegister } from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { useForm } from "../../hooks/useForm";
+
 import { useState } from "react";
+
+import { useRegister } from "../../hooks/useAuth";
+import { useForm } from "../../hooks/useForm";
 
 const initialValues = { email: ``, password: ``, 'confirm-password': `` };
 
@@ -71,7 +74,7 @@ export default function Register() {
                     )}
 
                     <p className="field">
-                        <span>If you already have profile click <a href="#">here</a></span>
+                        <span>If you already have profile click <Link to={`/login`}>here</Link></span>
                     </p>
                 </div>
             </form>
