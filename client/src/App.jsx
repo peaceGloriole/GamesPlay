@@ -16,6 +16,9 @@ function App() {
     const [authState, setAuthState] = useState({});
 
     const changeAuthState = (state) => {
+        // TODO : Fix by implementing persisted state
+        localStorage.setItem(`accessToken`, state.accessToken);
+
         setAuthState(state);
     };
 
@@ -26,7 +29,7 @@ function App() {
         changeAuthState,
         userId: authState._id,
     };
-    
+
 
     return (
         <AuthContext.Provider value={contextData}>
