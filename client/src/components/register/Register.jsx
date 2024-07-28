@@ -3,14 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
 import { useState } from "react";
 
-//css for error message
-const errorStyle = {
-    color: `red`,
-    textDecoration: `underline`,
-    fontSize: `14px`,
-    padding: `20px`,
-};
-
 const initialValues = { email: ``, password: ``, 'confirm-password': `` };
 
 export default function Register() {
@@ -69,7 +61,11 @@ export default function Register() {
                     <input className="btn submit" type="submit" value="Register" />
 
                     {error && (
-                        <p style={errorStyle}>
+                        <p style={{
+                            color: `red`,
+                            fontSize: `14px`,
+                            padding: `20px`
+                        }}>
                             <span>{error}</span>
                         </p>
                     )}

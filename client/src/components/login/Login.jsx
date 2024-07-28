@@ -6,14 +6,6 @@ import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
 import { useState } from 'react';
 
-//css for error message
-const errorStyle = {
-    color: `red`,
-    textDecoration: `underline`,
-    fontSize: `14px`,
-    padding: `20px`,
-};
-
 const initialValues = { email: ``, password: `` };
 
 export default function Login() {
@@ -61,7 +53,10 @@ export default function Login() {
                     <input type="submit" className="btn submit" value="Login" />
 
                     {error && (
-                        <p style={errorStyle}>
+                        <p style={{
+                            color: `red`,
+                            fontSize: `14px`,
+                            padding: `20px`}}>
                             <span>{error}</span>
                         </p>
                     )}
