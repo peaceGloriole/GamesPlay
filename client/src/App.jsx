@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import GameList from "./components/GameList/GameList";
 import DetailsGame from "./components/DetailsGame/DetailsGame";
+import Error from "./components/Error/Error";
 
 import { AuthContext } from "./contexts/AuthContext";
 
@@ -40,6 +41,7 @@ function App() {
                         <Route path="/games" element={<GameList />} />
                         <Route path="/games/:gameId/details" element={<DetailsGame />} />
                         <Route path="/games/create" element={<CreateGame />} />
+                        <Route path="/error" element={<Error />} />
                     </Routes>
                 </main>
             </div>

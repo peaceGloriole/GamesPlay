@@ -13,8 +13,14 @@ export default function Login() {
 
     const loginHandler = async ({ email, password }) => {
         try {
-            await login(email, password);
-            navigate(`/`);
+            const result = await login(email, password);
+
+            if (result && status.code === 200) {
+                navigate(`/`);
+            } else {
+                navigate(`/error`);
+            }
+
         } catch (error) {
             console.log(error.message);
         }
