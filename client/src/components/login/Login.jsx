@@ -4,10 +4,20 @@ import { useNavigate } from 'react-router-dom';
 
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
+import { useState } from 'react';
+
+//css for error message
+const errorStyle = {
+    color: `red`,
+    textDecoration: `underline`,
+    fontSize: `14px`,
+    padding: `20px`,
+};
 
 const initialValues = { email: ``, password: `` };
 
 export default function Login() {
+    const [error, setError] = useState(``);
     const navigate = useNavigate();
     const login = useLogin();
 
@@ -18,7 +28,7 @@ export default function Login() {
 
             navigate(`/`);
         } catch (error) {
-            navigate(`/error`);
+            setError(error.message);
         }
 
     };
@@ -49,6 +59,13 @@ export default function Login() {
                         value={state.password}
                         onChange={changeHandler} />
                     <input type="submit" className="btn submit" value="Login" />
+
+                    {error && (
+                        <p style={errorStyle}>
+                            <span>{error}</span>
+                        </p>
+                    )}
+
                     <p className="field">
                         <span>If you don't have profile click <Link to={`/register`}>here</Link></span>
                     </p>

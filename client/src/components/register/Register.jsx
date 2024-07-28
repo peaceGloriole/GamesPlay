@@ -28,7 +28,7 @@ export default function Register() {
 
             navigate(`/`);
         } catch (error) {
-            navigate(`/error`);
+            setError(error.message);
         }
     };
 
