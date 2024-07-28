@@ -28,7 +28,7 @@ export default function Register() {
 
             navigate(`/`);
         } catch (error) {
-            console.log(error.message);
+            navigate(`/error`);
         }
     };
 
@@ -70,15 +70,15 @@ export default function Register() {
 
                     {error && (
                         <p style={errorStyle}>
-                    <span>{error}</span>
-                </p>
+                            <span>{error}</span>
+                        </p>
                     )}
 
-                <p className="field">
-                    <span>If you already have profile click <a href="#">here</a></span>
-                </p>
-            </div>
-        </form>
+                    <p className="field">
+                        <span>If you already have profile click <a href="#">here</a></span>
+                    </p>
+                </div>
+            </form>
         </section >
     );
 }

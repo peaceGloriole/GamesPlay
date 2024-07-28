@@ -12,18 +12,15 @@ export default function Login() {
     const login = useLogin();
 
     const loginHandler = async ({ email, password }) => {
+
         try {
-            const result = await login(email, password);
+            await login(email, password);
 
-            if (result && status.code === 200) {
-                navigate(`/`);
-            } else {
-                navigate(`/error`);
-            }
-
+            navigate(`/`);
         } catch (error) {
-            console.log(error.message);
+            navigate(`/error`);
         }
+
     };
 
     const { state, changeHandler, submitHandler } = useForm(initialValues, loginHandler);
