@@ -56,7 +56,8 @@ export default function Login() {
                         <p style={{
                             color: `red`,
                             fontSize: `14px`,
-                            padding: `20px`}}>
+                            padding: `20px`
+                        }}>
                             <span>{error}</span>
                         </p>
                     )}
